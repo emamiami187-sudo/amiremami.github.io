@@ -13,14 +13,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0e13;
-    --bg-raised:#10141b;
-    --ink:#eceef1;
-    --ink-soft:#a2a9b4;
-    --ink-faint:#6b7280;
-    --line:#232a35;
-    --brass:#b3924f;
+    --bg:#0a1224;
+    --bg-raised:#0f1c36;
+    --ink:#eef1f7;
+    --ink-soft:#a3b0c9;
+    --ink-faint:#67739c;
+    --line:#1c2a4a;
+    --brass:#c6a15b;
     --brass-soft:#8f7640;
+    --navy-accent:#3a5fc4;
     --max:760px;
     --serif:'Noto Serif', serif;
     --sans:'Vazirmatn', sans-serif;
@@ -46,6 +47,11 @@
   /* ---- top bar ---- */
   .topbar{
     border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(15,28,54,0.6), rgba(10,18,36,0));
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    z-index:10;
   }
   .topbar-inner{
     max-width:var(--max);
@@ -76,6 +82,7 @@
   header.hero{
     padding:110px 0 90px;
     text-align:center;
+    background:radial-gradient(60% 55% at 50% 0%, rgba(58,95,196,0.18), rgba(58,95,196,0) 70%);
   }
   .eyebrow-line{
     width:36px;
@@ -133,29 +140,27 @@
   .edu-item .what{font-weight:500; color:var(--ink);}
   .edu-item .when{color:var(--ink-faint); font-size:14px; white-space:nowrap;}
 
-  .skills{margin-top:32px; display:flex; flex-wrap:wrap; gap:12px 28px;}
+  .skills{margin-top:32px; display:flex; flex-wrap:wrap; gap:10px 14px;}
   .skill{
-    font-size:14px;
+    font-size:13px;
     color:var(--ink-soft);
-    position:relative;
-    padding-right:16px;
-  }
-  .skill::before{
-    content:"";
-    position:absolute;
-    right:0;
-    top:9px;
-    width:5px;
-    height:5px;
-    background:var(--brass);
+    padding:7px 14px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--bg-raised);
   }
 
   /* ---- blog ---- */
   .post{
-    padding:30px 0;
-    border-top:1px solid var(--line);
+    padding:26px 28px;
+    margin:0 0 18px;
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:6px;
+    transition:border-color .2s ease;
   }
-  .post:first-of-type{border-top:none; padding-top:0;}
+  .post:last-of-type{margin-bottom:0;}
+  .post:hover{border-color:var(--brass-soft);}
   .post-date{font-size:12px; letter-spacing:0.04em; color:var(--brass); font-weight:500; margin:0 0 10px;}
   .post-title{font-family:var(--serif); font-size:21px; font-weight:700; margin:0 0 10px; color:var(--ink);}
   .post-excerpt{color:var(--ink-soft); margin:0; max-width:62ch; font-weight:300;}
@@ -237,7 +242,7 @@
     </div>
     <div class="skills">
       <span class="skill">تحلیل مالی</span>
-      <span class="skill">اکسل مالی</span>
+      <span class="skill">کریپتو</span>
       <span class="skill">تحلیل بازار سرمایه</span>
       <span class="skill">مدیریت پورتفولیو</span>
       <span class="skill">اقتصاد خرد و کلان</span>
@@ -251,15 +256,10 @@
 
     <article class="post">
       <p class="post-date">اولین یادداشت</p>
-      <h3 class="post-title"><a href="#">چرا این وبلاگ را شروع کردم</a></h3>
-      <p class="post-excerpt">این متن نمونه است. آن را با اولین یادداشت واقعی‌ات جایگزین کن — مثلاً درباره‌ی اینکه چرا مدیریت مالی را انتخاب کردی یا چه چیزی این روزها ذهنت را درگیر کرده.</p>
+      <h3 class="post-title"><a href="#">هدفم از ساخت این سایت چه بود</a></h3>
+      <p class="post-excerpt">این سایت را ساختم تا آموخته‌ها، ایده‌ها و یادداشت‌هایم را در مسیر شناخت اقتصاد و بازارهای مالی ثبت کنم؛ جایی برای جمع‌آوری آنچه می‌آموزم، آنچه تجربه می‌کنم و آنچه درباره آینده می‌اندیشم. شاید این نوشته‌ها در گذر زمان تغییر کنند، اما قرار است تصویری از مسیر یادگیری و رشد فکری من باشند.</p>
     </article>
 
-    <article class="post">
-      <p class="post-date">یادداشت دوم</p>
-      <h3 class="post-title"><a href="#">یک نکته درباره‌ی سرمایه‌گذاری</a></h3>
-      <p class="post-excerpt">این هم یک متن نمونه‌ی دیگر است تا ساختار صفحه را ببینی. هر وقت آماده بودی، این کارت‌ها را با نوشته‌های خودت پر کن.</p>
-    </article>
   </section>
 
   <section id="social">
@@ -269,15 +269,11 @@
     <div class="contact-grid">
       <div class="contact-row">
         <span class="contact-label">اینستاگرام</span>
-        <span class="contact-value"><a href="#" target="_blank" rel="noopener">آیدی خودت را اینجا بگذار</a></span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-label">لینکدین</span>
-        <span class="contact-value"><a href="#" target="_blank" rel="noopener">لینک پروفایلت را اینجا بگذار</a></span>
+        <span class="contact-value"><a href="https://instagram.com/amirmamad.e5" target="_blank" rel="noopener">amirmamad.e5</a></span>
       </div>
       <div class="contact-row">
         <span class="contact-label">تلگرام</span>
-        <span class="contact-value"><a href="#" target="_blank" rel="noopener">آیدی خودت را اینجا بگذار</a></span>
+        <span class="contact-value"><a href="https://t.me/AMDE07" target="_blank" rel="noopener">AMDE07@</a></span>
       </div>
     </div>
   </section>
@@ -289,11 +285,15 @@
     <div class="contact-grid">
       <div class="contact-row">
         <span class="contact-label">ایمیل</span>
-        <span class="contact-value"><a href="mailto:example@email.com">example@email.com</a></span>
+        <span class="contact-value"><a href="mailto:emamiamir189@gmail.com">emamiamir189@gmail.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">استان</span>
+        <span class="contact-value">یزد</span>
       </div>
       <div class="contact-row">
         <span class="contact-label">شهر</span>
-        <span class="contact-value">ایران</span>
+        <span class="contact-value">میبد</span>
       </div>
     </div>
   </section>
